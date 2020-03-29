@@ -1,31 +1,30 @@
-import  React from 'react';
+import React from "react";
+import "./Contact.css";
 import PropTypes from 'prop-types';
-import './Contact.css';
 
 
-
-function Contact(user) {
-    return(
-
+function Contact(props) {
+  return (
     <div className="Contact">
-        <img className="avatar" src={user.avatar} alt= {user.name}/>
-        <div>
-            <h6 className="name"> {user.name} </h6>
-            <div className="status">             
-                {user.online? <p className = 'status-online'> </p> : <p className = 'status-offline'></p>}
-                {user.online? <p className = 'status-text'>online</p> : <p className = 'status-text'>offline</p>}
-            </div>
+      <img className="avatar" src={props.avatar} alt={props.name}/>
+      <div>
+        <h4 className="name">{props.name}</h4>
+        <div className="status">
+            {props.online ? <p className="status-online"></p> : <p className="status-offline"></p>}
+            {props.online ? <p className="status-text">online</p> : <p className="status-text">offline</p>}        
         </div>
+      </div>
     </div>
-    );
-  }
-  
-  Contact.propTypes = {
-    name: PropTypes.objectOf(PropTypes.user).isRequired,
-    avatar: PropTypes.objectOf(PropTypes.user).isRequired,
-    online: PropTypes.objectOf(PropTypes.user).isRequired,
-  };
- 
-  
+  );
+}
 
-  export default Contact;
+Contact.propTypes = {
+  name: PropTypes.objectOf(PropTypes.props).isRequired,
+  avatar: PropTypes.objectOf(PropTypes.props).isRequired,
+  online: PropTypes.objectOf(PropTypes.props).isRequired,
+};
+
+export default Contact;
+
+
+
